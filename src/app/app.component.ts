@@ -9,10 +9,19 @@ import {HttpClientModule, HttpClient} from '@angular/common/Http';
 export class AppComponent {
   title = 'HTTP';
   private articles = [];
-  public hledani = "";
+  private hledat = "";
+  private adresa = "https://newsapi.org/v2/everything?q=bitcoin&from=2020-01-12&sortBy=publishedAt&apiKey=9cfbf2304e8248d0a332605e34ce2258";
+
+  clickedButton() {
+    this.adresa = "https://newsapi.org/v2/everything?q=" + this.hledat + "&from=2020-01-12&sortBy=publishedAt&apiKey=9cfbf2304e8248d0a332605e34ce2258";
+    console.log(this.adresa);
+    this.articles = [];
+    this.articles = ["articles"]
+  }
+
   constructor(private httpClient: HttpClient) {
     this.httpClient
-    .get('https://newsapi.org/v2/everything?q=bitcoin&from=2020-01-12&sortBy=publishedAt&apiKey=9cfbf2304e8248d0a332605e34ce2258')
+    .get(this.adresa)
     .subscribe(
       (data: any) => {
         this.articles = data["articles"];

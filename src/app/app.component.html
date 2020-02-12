@@ -4,8 +4,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
   
       <form class="form-inline mr-auto">
-        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit">Search</button>
+        <input class="form-control" type="text" placeholder="Search" [(ngModel)]="hledat" name="hledat" aria-label="Search">
+        <button class="btn btn-mdb-color btn-rounded btn-sm my-0 ml-sm-2" type="submit" (click)="clickedButton()">Search</button>
       </form>
   
     </div>
@@ -17,10 +17,10 @@
   </nav>
 
 <div class="container">
-    <div class="veci" *ngFor="let user of articles">
-    <h1>{{ user.author}}</h1>
+    <div class="shadow-lg p-3 mb-5 bg-white rounded" *ngFor="let user of articles">
     <h1>{{ user.title}}</h1>
+    <h3>{{ user.author}}</h3>
     <p class="publishedAt">{{ user.publishedAt}}</p>
-    <p class="description">{{ user.description}}</p>
+    <p class="description"wa>{{ user.description}}</p>
     </div>
 </div>
